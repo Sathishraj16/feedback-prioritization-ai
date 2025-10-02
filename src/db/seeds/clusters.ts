@@ -1,0 +1,177 @@
+import { db } from '@/db';
+import { clusters } from '@/db/schema';
+
+async function main() {
+    const sampleClusters = [
+        {
+            name: 'Critical Bugs',
+            description: 'System crashes, data loss, blocking issues',
+            size: 0,
+            xPosition: 15.5,
+            yPosition: 85.2,
+            color: '#FF4444',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Authentication Issues',
+            description: 'Login problems, SSO, password resets',
+            size: 0,
+            xPosition: 32.1,
+            yPosition: 78.9,
+            color: '#FF6B35',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Performance Problems',
+            description: 'Slow loading, timeouts, lag issues',
+            size: 0,
+            xPosition: 48.7,
+            yPosition: 82.4,
+            color: '#F7931E',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Mobile Experience',
+            description: 'Mobile app bugs, responsive design issues',
+            size: 0,
+            xPosition: 65.3,
+            yPosition: 76.1,
+            color: '#FFD23F',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Integration Requests',
+            description: 'API integrations, third-party connections',
+            size: 0,
+            xPosition: 82.9,
+            yPosition: 79.6,
+            color: '#06FFA5',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'UI/UX Polish',
+            description: 'Design improvements, usability enhancements',
+            size: 0,
+            xPosition: 12.4,
+            yPosition: 62.3,
+            color: '#3BCEAC',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Enterprise Features',
+            description: 'Advanced business functionality requests',
+            size: 0,
+            xPosition: 28.8,
+            yPosition: 58.7,
+            color: '#0EAD69',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Security & Compliance',
+            description: 'Data protection, audit trails, permissions',
+            size: 0,
+            xPosition: 45.2,
+            yPosition: 65.9,
+            color: '#2E8B57',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Documentation',
+            description: 'Missing guides, unclear instructions, examples',
+            size: 0,
+            xPosition: 61.6,
+            yPosition: 59.4,
+            color: '#4ECDC4',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Pricing & Billing',
+            description: 'Plan limits, pricing concerns, billing issues',
+            size: 0,
+            xPosition: 78.0,
+            yPosition: 63.1,
+            color: '#45B7D1',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Customer Support',
+            description: 'Support quality, response times, help resources',
+            size: 0,
+            xPosition: 18.7,
+            yPosition: 42.8,
+            color: '#96CEB4',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Data Export',
+            description: 'Export functionality, data portability requests',
+            size: 0,
+            xPosition: 35.1,
+            yPosition: 39.5,
+            color: '#FFEAA7',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Search & Filters',
+            description: 'Search improvements, filtering options',
+            size: 0,
+            xPosition: 51.5,
+            yPosition: 43.2,
+            color: '#DDA0DD',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Notifications',
+            description: 'Email alerts, in-app notifications, settings',
+            size: 0,
+            xPosition: 67.9,
+            yPosition: 40.7,
+            color: '#98D8C8',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Collaboration Tools',
+            description: 'Team features, sharing, permissions',
+            size: 0,
+            xPosition: 84.3,
+            yPosition: 44.9,
+            color: '#F7DC6F',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Dashboard & Analytics',
+            description: 'Reporting, metrics, data visualization',
+            size: 0,
+            xPosition: 22.0,
+            yPosition: 23.6,
+            color: '#BB8FCE',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Workflow Automation',
+            description: 'Process automation, rules, triggers',
+            size: 0,
+            xPosition: 38.4,
+            yPosition: 20.3,
+            color: '#85C1E9',
+            createdAt: new Date().toISOString(),
+        },
+        {
+            name: 'Account Management',
+            description: 'User settings, profile management, preferences',
+            size: 0,
+            xPosition: 54.8,
+            yPosition: 24.1,
+            color: '#F8C471',
+            createdAt: new Date().toISOString(),
+        }
+    ];
+
+    await db.insert(clusters).values(sampleClusters);
+    
+    console.log('✅ Clusters seeder completed successfully');
+}
+
+main().catch((error) => {
+    console.error('❌ Seeder failed:', error);
+});
